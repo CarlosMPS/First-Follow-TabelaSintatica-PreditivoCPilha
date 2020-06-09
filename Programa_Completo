@@ -1,0 +1,820 @@
+'''
+α = alfa
+β = beta
+ε = epslom
+'''
+def gerarLetra():
+    letra = ''
+    continuar_letra = 'S'
+    i = 0
+    l = 0
+    j = 0
+    k = 0
+    m = 0
+    n = 0 # Auxilia para encontrar BARRA | #
+    y = 0 # AUXILIDAR DE 'cada_regra', AJUDA A MANDAR REGRA LETRA POR LETRA #
+
+
+    regra_array = [] # POSSUI O LEN DE CADA REGRA #
+    regra_aux = 0
+    cada_regra_loop = True
+    len_regra = 0
+    t = 0
+    letra = [] # VALORES ENVIADOS #
+    regra = [] # VALORES ENVIADOS #
+    nova_letra = []  # VALORES ARMAZENADOS PARA SEREM RETORNADOS #
+    nova_regra = []  # VALORES ARMAZENADOS PARA SEREM RETORNADOS #
+    aux_append = []  # AUXILIA PARA JUNTAR MAIS DE 2 REGRAS PARA 1 LETRA #
+    cada_regra = []  # ARMAZENA CADA REGRA EM UM ARRAY DIFERENTE #
+    todas_regras_juntas = [] # TODAS AS REGRAS EM UM ÚNICO ARRAY #
+
+
+
+    letraAux = ''
+    regraAux = ''
+    primeiro_digito = ''
+    ultimo_digito = ''
+    possui_barra = False
+
+    loop_regra = True # USADO NAS 'CONDIÇÕES' PARA TERMINAR O LOOP DEPOIS QUE VERIFICAR TODAS AS REGRAS #
+    tam_regra = 0 # AUXILIAR PARA PARAR O LOOP REGRA #
+    continuar_cond = True # CONDIÇÃO PARA ENCERRAR LOOP CASO NECESSÁRIO #
+
+    print('\n[PRIMEIRO INFORME A LETRA E EM SEGUIDA A REGRA QUE IRÁ IMPOR A ESSA LETRA]\n | α = alfa | β = beta | ε = epslom |\n')
+    while continuar_letra != 'N':
+        letra_ask = str(input('Informe a LETRA para impor uma regra: ')).upper()
+        letra.append(letra_ask)
+        regra_ask =str(input('Informe a REGRA para essa letra: '))
+        regra.append(regra_ask)
+
+            # ARMAZENA O TAMANHO DE CADA REGRA #
+        cada_regra.append(regra[y])
+        len_regra = 0  # RESETA A CONTAGEM DO 'loop_regra' #
+        for loop_regra1 in regra: # RETORNA O TAM DE CADA REGRA INDIVIDUALMENTE #
+            for loop_regra2 in loop_regra1:
+                regra_aux = len(loop_regra1)
+        regra_array.append(regra_aux)
+        regra_aux = 0
+
+
+
+        continuar_letra = str(input('Deseja incluir outra letra?(S/N):  \n')).upper()
+        i += 1
+        if continuar_letra == 'S':
+            pass
+
+
+            '''
+            FUNCIONAMENTO DAS CONDIÇÕES:
+            1. Primeiro deve colocar o Primeiro valor (X) no array (OK)
+            2. Deve pegar os PRIMEIROS valores de X e comparar com as letras do array abaixo E colocar mais de 1 valor se possuir OU | (OK)
+             -> Maiusculo: Procura letra em array abaixo com a regra 2
+             -> Minusculo: x aceita o valor
+             -> Operação:  x aceita o valor
+            3. Regra Epslom ε
+             -> Se possuir em todas as letras MAIUSCULAS de X, X recebe epslom
+             -> Se a letra possui ε, recbebe ε
+             
+             
+            Ordem:
+             -Primeiro salvar as letras A, B etc.
+             -Depois fazer comparacoes com X
+            '''
+
+
+        elif continuar_letra == 'N': # CONDICOES
+
+            # MOSTRAR VALORES ESCOLHIDOS PELO USUARIO #
+            print('-' * 32)
+            print('[ESCOLHIDOS]')
+            for r in range(len(letra)):
+                print('{} -> {}'.format(letra[r], regra[r]))
+            print('-' * 32)
+            print('=====FIRST=====')
+
+            q = 0 #Usado para o for
+            r = 0 #regra
+            t = 0 #auxilia regra
+            nova_letra.append(letra)
+            nova_regra.append(regra)
+            count = 0
+            array = []
+            aux = []    # USADO APENAS PARA ARMAZENAR OS VALORES #
+            tam_regra = 0
+            tam_regras = 0
+            vez_que_loopou = 0
+            continuar_loop = True
+
+            # Tamanho de todas as regras#
+            for tam_aux in regra:
+                for tam_aux2 in tam_aux:
+                    tam_regras += 1
+
+
+
+            i = 0 # USADO PARA TAM_REGRA #
+            l = 0 # USADO PARA TAM_REGRAS #
+            j = 0 # USADO NO ARRAY #
+            k = 0 # USADO NO AUX #
+            loop_aux = False
+            tam_letra = 0
+
+            tam_regra_array = len(regra_array)
+
+                                            #    [MANUAL]    #
+                    #    [LETRAS]    #
+            # ? = Possui a quantidade de letras  - Não é necessário supondo que o array ja para quando nao possuir mais regras#
+
+                    #    [REGRAS]    #
+            # array = Usado para armazenar as regras #
+            # regra_array = Tamanho de cada regra #
+            # tam_regra_array = Armazena o tamanho de todas as regras #
+            # armazena_letra_each = O valor de cada regra colocada em um único array  - FAZER #
+            # todas_regras_juntas = Todas as regras juntas em 1 unico array #
+
+            # regra_array = Tem o tamanho de CADA regra #
+
+
+                    #    FOLLOW    #
+            # Auxiliar_regra_follow = Todas as letras com o ’ juntos #
+
+            armazena_letra_each = []
+            armazena_letra_each.append('') # ALOCA UM ESPAÇO NO ARRAY #
+            armazena_letra_variavel = 0
+            #armazena_letra_variavel += 1  # AUMENTA A VARIAVEL PARA ENTRAR VALOR NO ESPAÇO ALOCADO #
+
+
+            tam_regra_aux = 0
+            variavel_array = 0
+            variavel_i = 0
+            tam_regra_aux2 = regra_array[tam_regra_aux]
+            i = 0
+            armarenar_condicao_regra = 0
+
+                    # ARMAZENAR TODAS AS REGRAS EM 1 ARRAY SEPARADO, GUARDADO NO 'armazena_letra_each' #
+            for o in regra:
+                for p in o:
+                    if tam_regra_aux < tam_regra_aux2:
+                        armazena_letra_each[armazena_letra_variavel] += p
+                        tam_regra_aux += 1
+                        todas_regras_juntas.append(p)
+                    else:
+                        armarenar_condicao_regra += tam_regra_aux + 1
+                        if armarenar_condicao_regra < tam_regras:
+                            i += 1
+                            variavel_array = variavel_i
+                            armazena_letra_each.append('')
+                            armazena_letra_variavel += 1
+                            tam_regra_aux2 = regra_array[i]
+                            todas_regras_juntas.append(p)
+                            armazena_letra_each[armazena_letra_variavel] += p # SERVE PRA ADICIONAR A PRIMEIRA REGRA, SE NÃO SERIA PERDIDA NO ELSE #
+                            tam_regra_aux = 1
+                        else:
+                            todas_regras_juntas.append(p)
+                            armazena_letra_each[armazena_letra_variavel] += p
+
+            aux_tam_regra = 0
+            loop_auxiliar = True
+            a = 0 #Array
+            r = 0 #Regras
+            t = 0 #Posicao da regra que quero
+            append = True
+            i = 0
+
+                #    FIRST    #
+            # Separar os primeiros #
+            for aux in regra:
+                append = True
+                tam_aux = len(aux)
+                while i < tam_aux:
+                    if append == True:
+                        array.append(aux[i])
+                        append = False
+                        i += 1
+                    else:
+                        if aux[i] == '|':
+                            array[a] += aux[i+1]
+                            if i+2 < tam_aux:
+                                if aux[i+2].islower:
+                                    array[a] += aux[i+2]
+                            i += 1
+                        else:
+                            i += 1
+                a += 1 # Armazena aux #
+                i = 0  # Zera o 'i' que compara os tamanhos #
+
+            i = 0
+            for r in range(len(letra)):
+                i += 1
+
+            i = 0 # Controla a regra - Local para armazenar no array #
+            j = 0 # Controla a letra - Local para armazenar no array #
+            i_loop = False
+            j_loop = False
+            tam_letra = len(letra)
+            # Transformar maiúsculo em minúsculo #
+            for aux1 in letra:               # Procura letra por letra #
+                if j_loop:
+                    j += 1
+                    i = 0                    # Zera o i, para rechecar com a nova letra #
+                for aux2 in array:           # Manda conjunto em conjunto de array #
+                    j_loop = True
+                    if aux1 in aux2:          # Procura a letra no conjunto de array #
+                        array[i] = array[i].replace(aux1, array[j]) # Troca a letra antiga pela regra nova #
+                        #array[i] += array[j]  # Array da regra recebe a regra da letra #
+                    else:
+                        i += 1                # Avança o array, para colocar na proxima posição #
+
+
+            # CORRIGIR S - entrando +#
+            i = 0
+            epslom = 0
+            aux_epslom = 0
+            end_loop_epslom = True
+
+            array[0] = ''
+            for aux1 in armazena_letra_each[0]:
+                if end_loop_epslom:
+                    if aux1.isupper():
+                        i = 0
+                        for aux2 in letra:
+                            if aux1 == aux2:
+                                if end_loop_epslom:
+                                    array[0] += array[i]
+                                    aux_epslom += 1
+                                    if 'ε' in array[i]:
+                                        epslom += 1
+                                    i += 1
+                                    end_loop_epslom = False
+
+                            else:
+                                i += 1
+                    else:
+                        array[0] += aux1
+                        end_loop_epslom = False
+            guarda_array = []
+
+
+            # PESQUISAR SE TODOS OS VALORES EM S, POSSUEM ε, PARA QUE ELE TAMBÉM POSSUA ε #
+            if epslom > aux_epslom:
+                for aux in array[0]:
+                    if aux == 'ε':
+                        pass
+                    else:
+                        guarda_array += aux
+                array[0] = ''
+                for aux2 in range(len(guarda_array)):
+                    array[0] += aux2
+            else:
+                pass
+
+            i = 0
+            j = 0
+            epslom = 0
+            epslom_aux = 0
+            armazena_auxiliar = []
+            # CONTAS QUANTAS LETRAS DO 'array[0]' POSSUEM EPSLOM #
+            for i in array[0]:
+                if i.isupper():
+                    while i != letra[j]:    # Descobrir a posição da letra #
+                        if aux == letra[j]:
+                            pass
+                        else:
+                            j += 1
+                    if 'ε' in array[j]:
+                        epslom += 1
+                    else:
+                        pass
+                    j = 0
+                else:  # SE NAO FOR LETRA, TBM CONSIDERARÁ COMO EPSLOM #
+                    epslom += 1
+
+            i = 0
+            # VERIFICAR SE TODAS AS LETRAS POSSUEM EPSLOM #
+            if epslom == len(array[0]): # SE POSSUIR EPSLOM EM TODAS AS LETRAS #
+                pass
+            else:
+                for i in array[0]:
+                    if i != 'ε':
+                        armazena_auxiliar += i
+                array[0] = armazena_auxiliar
+
+
+
+
+                    # TROCAR TODA LETRA MAIÚSCULA POR MINÚSCULA #
+            guarda_first = ''
+            i = 0
+            j = 0
+            qtd = 0
+            loop_auxiliar_first = False
+            auxiliar_first = []
+            auxiliar_first.append('')
+
+            for aux1 in array:
+                if loop_auxiliar_first:
+                    i += 1
+                for aux2 in aux1: # Pegar letra por letra da regra #
+                    aux = aux2
+                    if aux.isupper():
+                        while aux != letra[j]:
+                            if aux == letra[j]:
+                                pass
+                            else:
+                                j += 1
+                        auxiliar_first[0] += array[j]
+                        for h in array[i]:
+                            if aux != h:
+                                auxiliar_first[0] += h
+                            else:
+                                pass
+                        array[i] = ''
+                        array[i] = auxiliar_first[0]
+                        auxiliar_first[0] = ''
+                        j = 0
+                        i += 1
+                    else:
+                        if qtd == len(array[i]):  # NÃO ACHOU NENHUM UPPER, VAI PARA O PROXIMO ARRAY #
+                            i += 1
+                    qtd += 1
+
+
+
+            # MOSTRAR FIRST #
+            i = 0
+            j = 0
+            k = 0
+
+            for aux in range(len(letra)):
+                print('SEGUINTE({}) = {}'.format(letra[i], array[i]))
+                i += 1
+            i = 0
+
+            # ORDENAR #
+            aux_ordenar = []
+            for aux1 in array:
+                for aux2 in aux1:
+                    aux_ordenar.append(aux2)
+                    k += 1
+                aux_ordenar.sort()
+                string_ordenar = aux_ordenar
+                aux_ordenar = []
+                array[i] = string_ordenar
+                i += 1
+                string_ordenar = ''
+
+
+            i = 0
+
+
+
+
+
+            # VERIFICAR: 1. FUNCIONAMENTO DO EPSLOM #
+            # VERIFICAR PARA ACEITAR TODA A NOVA CONDICAO #
+            # =========================================================================================== #
+            print('-' * 32)
+            print('=====FOLLOW=====')
+
+                    #    FOLLOW    #
+            array_follow = [] # ARMAZENAR OS SEGUINTES #
+             # 1º REGGRA #
+            array_follow.append('$')
+
+            # JUNTAR LETRA COM ’ #
+            auxiliar_regra_follow = []
+            auxiliar_regra_follow.append('')
+            aux_loop_follow = False
+            i = 0
+            j = 0
+            k = 0
+            todas_regras = len(todas_regras_juntas)
+
+                # IMPLEMENTAÇÃO #
+
+            i = 0 # Me diz em que letra está #
+            letra_auxiliar_follow = []
+            regra_auxiliar_follow = []
+            continua_auxiliar_follow = []
+            while i < len(letra):
+                continua_auxiliar_follow.append('')
+                i += 1
+
+            loop_follow = False  # USADO PARA ATRIBUIÇÃO APÓS O 1º LOOP #
+            i = 0    # LETRA #
+            j = 0    # POSIÇÃO REGRA #
+            g = 0    # REGRA QUE QUERO #
+            pos = 0
+            loop_g = False
+            pos_follow = True
+            pos_elif = True
+            total_obtido = 0
+            letra_g = ''
+            loop_follow_letra = False
+            # continua_auxiliar_follow = Usado para armazenar os valores #
+
+            continua_auxiliar_follow[0] += '$'
+            # Enquanto houver espaços vazios, continuar loop #
+            letra_armazena =  []
+            letra_armazena.append('')
+            for aux in letra:
+                letra_armazena[0] += aux
+            letra_guarda = ''
+            for l in letra:
+                if loop_follow_letra:
+                    i += 1
+                g = 0
+
+
+                for r in regra:
+                    j = 0
+                    if loop_follow:
+                        g += 1
+                    loop_follow = True
+                    loop_follow_letra = True
+
+                    if l in r: # ACHOU A LETRA NA REGRA
+                        j = r.find(l) # Começa contando do 0
+                        #print('LETRA A CAMINHO: ', l)
+                        #print('REGRA ACHADA PARA TESTE: ', r)
+
+                        if len(l) == 1:
+                            if j+1 < len(r):  # 2º REGRA #
+                                if r[j + 1] != '’' or r[j + 1] != '|':
+                                    if continua_auxiliar_follow[i] == '' or continua_auxiliar_follow[i] == '$':
+                                        if r[j + 1] == ')':
+                                            continua_auxiliar_follow[i] += r[j + 1]
+                                        else:
+                                            for p in letra:
+                                                if p == r[j+1]:
+                                                    pos_follow = False
+                                                else:
+                                                    if pos_follow:
+                                                        pos += 1
+                                            if pos >= len(regra):                # Se for minusculo
+                                                if r[j+1] == '|':
+                                                    continua_auxiliar_follow[i] += continua_auxiliar_follow[1]
+                                                else:
+                                                    continua_auxiliar_follow[i] += r[j+1]
+                                            else:                                # Se for maiusculo
+                                                if '+' in regra[pos]:
+                                                    continua_auxiliar_follow[i] += '+'
+                                                    continua_auxiliar_follow[i] += continua_auxiliar_follow[pos]
+                                                elif '*' in regra[pos]:
+                                                    continua_auxiliar_follow[i] += '*'
+                                                    continua_auxiliar_follow[i] += continua_auxiliar_follow[pos]
+                                                else:
+                                                    continua_auxiliar_follow[i] += continua_auxiliar_follow[pos]
+                                            pos = 0
+                                    pos_follow = True
+                                    p = 0
+                                    pos = 0
+                                    g = 0
+                                else:
+                                    continua_auxiliar_follow[i] = i
+                                loop_follow = False
+                                g = 0
+
+
+                            elif j+1 == len(r):  # 3º REGRA #
+                                if loop_g:
+                                    letra_g = letra[g-1]
+                                else:
+                                    letra_g = letra[g]
+
+                                loop_g = True
+
+
+                                for p in letra:
+                                    if p == letra_g:
+                                        pos_follow = False
+                                    else:
+                                        if pos_follow:
+                                            pos += 1
+
+                                for auxiliar_elif in r:
+                                    if l == auxiliar_elif:
+                                        pos_elif = False
+                                    else:
+                                        if pos_elif:
+                                            pos_elif += 1
+                                if '+' in regra[pos]:
+                                    continua_auxiliar_follow[i] += '+'
+                                    continua_auxiliar_follow[i] += continua_auxiliar_follow[pos]
+                                elif '+' in regra[pos]:
+                                    continua_auxiliar_follow[i] += '*'
+                                    continua_auxiliar_follow[i] += continua_auxiliar_follow[pos]
+                                else:
+                                    continua_auxiliar_follow[i] += continua_auxiliar_follow[pos]
+                            pos_follow = True
+                            pos_elif = True
+                            p = 0
+                            pos = 0
+                            g = 0
+                        else:
+                            continua_auxiliar_follow[i] = i
+                            g = 0
+                        loop_follow = False
+                        g = 0
+                        loop_follow = False
+            i = 0
+            for l in letra:
+                print('SEGUINTE({}) = {}'.format(l, continua_auxiliar_follow[i]))
+                i += 1
+            print('-' * 32)
+            # ================================================================================= #
+            print('=====TABELA SINTÁTICA M(X, t)=====')
+
+            # array -> First
+            # continua_auxiliar_follow -> follow
+
+                    #    Pegar 1 de cada letrinha sem repetidos    #
+            array_regrinha = []
+            string_regra = ''
+            i = 0
+            ordenar_regra = todas_regras_juntas
+            ordenar_regra.sort()                 # Ordena as letras
+
+            while i+1 < len(ordenar_regra): # tamanho
+                if ordenar_regra[i+1] == '|' or ordenar_regra[i+1] == 'ε': # Remove | e ε
+                    del(ordenar_regra[i + 1])
+                elif ordenar_regra[i] == ordenar_regra[i+1]:               # Remove letras repetidas
+                    del(ordenar_regra[i+1])
+                elif ordenar_regra[i].isupper():                           # Remove maiúsculos
+                    del (ordenar_regra[i])
+                else:
+                    i += 1
+            ordenar_regra.append('$')
+            # ordenar_regra -> Letrinhas ordenadas
+
+                    #    Pegar firts das regras e o first após '|'     #
+            i = 0
+            j = 0
+            regra_tabela = []
+            for aux in regra:
+                j = 0
+                regra_tabela.append(aux[0])
+                while j+1 < len(aux):
+                    if aux[j] == '|':
+                        regra_tabela[i] += aux[j+1]
+                    j += 1
+                i += 1
+            # regra_tabela -> Toda regrinha com seus firsts
+
+            # ?????????? CRIAR REGRA SIMILAR MAS PEGANDO TODOS OS VALORES ANTAS DO |
+
+                    #    Inserindo valores nas tabelas com as regras    #
+            '''
+            M(x,y)
+                                  
+            1º Regra: Se não houver first(y), M[x,y]
+                      Se houver: y = first(y)
+                      se y = ε, first(y) = ε
+                      
+            2º Regra: Se ε pertence a first(y)
+                      y = follow(x)
+            
+            3º Regra: Se ε pertence a first(y) e $ pertence a follow(x)
+            '''
+            i = 0 # Letra em que o loop está #
+            j = 0 # Regra em que o loop está #
+            k = 0 # Letra
+            t = 0
+            auxiliar_j = 0
+            auxiliar_j_2 = 0
+            tam_regra_aux = ''
+            aux_numero = 0
+            tabela_complete = []
+            loop_extra_tabela = False
+            string_auxiliar = ''
+            loop_tabela = False
+            loop_tabela_2 = False
+            tabela_continue = False
+            uma_implementacao = True
+            uma_implementacao_2 = True
+            uma_implementacao_3 = True
+
+            for aux in regra_tabela:
+                if loop_tabela:
+                    i += 1
+                    k = 0
+                    t = 0
+                    j = 0
+                    loop_tabela_2 = False
+                loop_tabela = True
+                j = 0
+                for aux_regra_tabela in aux:
+                    loop_extra_tabela = True
+                    # PROXIMO ARRAY DEVE ENTRAR COM O LEN DO PASSADO, EXEMPLO i = len(aux[i - 1]) para nao colocar valores em cima dos passados
+                    if loop_tabela_2:
+                        j += 1
+                    loop_tabela_2 = True
+                    t = 0
+
+                    # LOWER #
+                    if aux[j].islower():       # Se a y for minúsculo #
+                        if aux[j] == 'ε':
+                            for aux in letra:
+                                if aux == letra[i]:
+                                    for x in continua_auxiliar_follow[k]:
+                                        if uma_implementacao and x != '%':
+                                            string_auxiliar = letra[i] + 'ε'
+                                            tabela_complete.append(letra[i] + x + string_auxiliar) # Pega o first do follow #
+                                        else:
+                                            uma_implementacao = False
+                                else:
+                                    k += 1
+
+                        if j == 0:
+                            for aux1 in regra[i]:
+                                if aux[j] == aux1 or tabela_continue:
+                                    tabela_continue = True
+                                    if aux1 != '|':
+                                        if loop_extra_tabela:
+                                            string_auxiliar += aux1
+                                    else:
+                                        loop_extra_tabela = False
+                            tabela_complete.append(letra[i] + aux_regra_tabela + string_auxiliar)
+
+                        string_auxiliar = ''
+                        loop_extra_tabela = True
+                        k = 0
+                        if j > 0:
+                            for aux in regra[i]:
+                                if aux == '|' or loop_extra_tabela:
+                                    loop_extra_tabela = True
+                                    string_auxiliar = aux1
+                            tabela_complete.append(letra[i] + aux_regra_tabela + string_auxiliar)
+
+                    uma_implementacao = False
+                    # UPPER #
+                    t = 0
+
+                    if aux_regra_tabela.isupper():
+                        for aux in letra:
+                            if aux == aux_regra_tabela:
+                                for x in array[k]:
+                                    if 'ε' in array[k]:  # 2º Regra #
+                                        if uma_implementacao_3:
+                                            string_auxiliar = letra[i] + aux_regra_tabela
+                                            tabela_complete.append(letra[i] + x + string_auxiliar)
+                                            uma_implementacao_3 = False
+                                        for aux_l in letra:
+                                            if aux_l == letra[i]:
+                                                if uma_implementacao_2:
+                                                    for y in continua_auxiliar_follow[t]: # Pegar o primeiro #
+                                                        string_auxiliar = letra[i] + aux_regra_tabela
+                                                        tabela_complete.append(letra[i] + y + string_auxiliar)  # 2º REGRA #
+                                                        uma_implementacao_2 = False
+                                            else:
+                                                t += 1
+                                    else:
+                                        tabela_complete.append(letra[i] + x + string_auxiliar)  # 1º Regra => y = First(y) #
+                            else:
+                                k += 1
+                    k = 0
+                    uma_implementacao = True
+                    uma_implementacao_2 = True
+                    loop_extra_tabela = True
+                    tabela_continue = False
+                    tam_regra_aux = ''
+                    string_auxiliar = ''
+                    auxiliar_j = 0
+                    auxiliar_j_2 = 0
+                    loop_tabela_2 = True
+                    uma_implementacao_3 = True
+
+            tabela_complete[-1] = '-'
+            for i in tabela_complete:
+                if 1 < len(i):
+                    print('| {} => {} | '.format(i[0]+i[1], i[2:]))
+            '''
+                    #    Fazer um tabela para armazenar os valores    #
+            i = 0
+            letra_armazena = letra[0]
+
+            print('-', end = '')
+            while(i < len(ordenar_regra)):
+                print(' |  ' + ordenar_regra[i], end='')
+                i += 1
+            i = 0
+            j = 0
+            k = 0
+            string_ordenar_regra = ''
+            while i < len(ordenar_regra):
+                string_ordenar_regra += ordenar_regra[i]
+                i += 1
+            i = 0
+            tabela_string = ''
+            print('  |  ', end='')
+            print('')
+            for aux1 in tabela_complete:
+                if j == len(letra):
+                    pass
+                else:
+                    print('{} |'.format(letra[k]), end='')
+                    while i < len(string_ordenar_regra):
+                        print('ver', aux1[3], string_ordenar_regra)
+                        if aux1[2] in string_ordenar_regra:
+                            print('ENTROU')
+                            print('entrou', aux[3])
+                            tabela_string = aux1[2:]
+                            print('  {}  |'.format(tabela_string), end='')
+                            i += 1
+                        else:
+                            print('  -  |', end='')
+                            i += 1
+                    i = 0
+                    j += 1
+                    k += 1
+                    print('')
+            '''
+            return
+
+
+                    #    Preditivo com Pilha    #
+            print('-' * 32)
+            print('=====RECONHECEDOR PREDITIVO COM PILHA=====')
+            '''
+            1º REGRA: X = $ e Z = $
+               -> Para e reconhece
+               
+            2º REGRA: X = Z e Z != $
+               -> = Desempilha todo Z na Pilha e Entrada
+               
+            3º REGRA: X != Terminal 
+               -> Consulta M(X,Y)
+               -> Se vazio = ERRO
+               -> Se contém: Pilha = (M(X,Y) + '$')
+            
+            '''
+
+
+            i = 0 # Array da letra que vai ser testada #
+            j = 0 # Regra #
+            k = 0 # Saber se achou algum valor na regra 3 #
+            m = 0
+            aux_tabela = []
+            string_aux_tabela = ''
+            int_aux_tabela = 0
+            letra_tabela = []
+            letra_tabela = letra # Copia cada Letra #
+            preditivo_pilha = []
+            preditivo_pilha = tabela_complete # Copia resultado da tabela #
+            teste_pilha = input(str('Informe a REGRA que deseja testar: '))
+            teste_pilha += '$'
+            aux_tabela.append(letra[0] + '$')
+            atualiza_letra = ''
+            atualiza_letra = letra[0]
+            loop_tabela = True
+            armazena_first_nova_regra = 'S'
+            armazena_precisar_remover = ''
+
+            # letra_tabela -> letras minusculas
+            # armazena_first_nova_regra -> Armazena
+            # armazena_precisar_remover -> Se precisar remover, ja tem guardado para substituir (Fica na REGRA 3 e usa na REGRA 2)
+            while loop_tabela:
+                print('TESTANDO: ', armazena_first_nova_regra, teste_pilha[j])
+                # 1º REGRA #
+
+
+                if armazena_first_nova_regra == '$' and teste_pilha[j] == '$':
+                    print('ENTROU 1 REGRA')
+                    loop_tabela = False
+
+                    # 2º REGRA #
+                elif (armazena_first_nova_regra == teste_pilha[j] and teste_pilha[j] != '$'):
+                    print('ENTROU 2 REGRA')
+                    string_aux_tabela[i] = armazena_precisar_remover
+                    j += 1  # Avança o teste #
+                    i = 0
+
+                    int_aux_tabela += 1
+
+                    # 3º REGRA #
+                elif armazena_first_nova_regra.isupper():
+                    print('ENTROU 3 REGRA')
+                    for y in ordenar_regra:
+                        if y == teste_pilha[j]:  # Achou a letra minuscula #
+                            for lower in tabela_complete:
+                                if atualiza_letra == lower[0] and teste_pilha[j] == lower[1]:  # Se possuir M[X,Z]
+                                    aux_tabela.append(lower[2:] + '$')
+                                    armazena_first_nova_regra = lower[3]
+                                    armazena_precisar_remover = lower[3:]
+                                    i += 1
+                                else:
+                                    k += 1
+                                    if k + 1 < len(tabela_complete):
+                                        aux_tabela.append('ERRO')
+                    k = 0
+                else:
+                    print('ENTROU ELSE')
+                    pass
+            print('CHEGOU', aux_tabela)
+        else:
+            print('[ERRO: Vc deve digitar S ou N para continuar]')
+            continuar_letra = str(input('Deseja incluir outra letra? (S/N) ')).upper()
+
+
+
+gerarLetra()
