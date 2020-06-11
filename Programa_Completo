@@ -729,7 +729,7 @@ def gerarLetra():
                     k += 1
                     print('')
             '''
-            return
+
 
 
                     #    Preditivo com Pilha    #
@@ -761,56 +761,73 @@ def gerarLetra():
             letra_tabela = letra # Copia cada Letra #
             preditivo_pilha = []
             preditivo_pilha = tabela_complete # Copia resultado da tabela #
-            teste_pilha = input(str('Informe a REGRA que deseja testar: '))
-            teste_pilha += '$'
+
+            # M(X,Y,Z)
+            x = 'S$'  # Pilha
+            y = input(str('Informe a REGRA que deseja testar: ')) # Entrada
+            y += '$'
+            z = []  # Ação
+
+            tabela_sintatica = tabela_complete # Copia a tabela sintatica
             aux_tabela.append(letra[0] + '$')
             atualiza_letra = ''
             atualiza_letra = letra[0]
             loop_tabela = True
-            armazena_first_nova_regra = 'S'
+            armazena_first_nova_regra = '$'
             armazena_precisar_remover = ''
+            tam_p = 0
+            inc_p = 0
+            loop_regra3 = True
 
             # letra_tabela -> letras minusculas
             # armazena_first_nova_regra -> Armazena
             # armazena_precisar_remover -> Se precisar remover, ja tem guardado para substituir (Fica na REGRA 3 e usa na REGRA 2)
             while loop_tabela:
-                print('TESTANDO: ', armazena_first_nova_regra, teste_pilha[j])
+                loop_regra3 = True
+                tam_p = 0
+                inc_p = 0
+                print('[Pilha | Entrada]')
+                print('{} | {}'.format(x,y))
+                print('-' * 17)
+
                 # 1º REGRA #
-
-
-                if armazena_first_nova_regra == '$' and teste_pilha[j] == '$':
-                    print('ENTROU 1 REGRA')
+                if x[0] == '$' and y[0] == '$':
                     loop_tabela = False
 
                     # 2º REGRA #
-                elif (armazena_first_nova_regra == teste_pilha[j] and teste_pilha[j] != '$'):
-                    print('ENTROU 2 REGRA')
-                    string_aux_tabela[i] = armazena_precisar_remover
-                    j += 1  # Avança o teste #
-                    i = 0
-
-                    int_aux_tabela += 1
+                elif x[0] == y[0] and y[0] != '$':
+                    x = x[1:]   # Desempilha a Pilha
+                    y = y[1:]   # Desempilha a Entrada
 
                     # 3º REGRA #
-                elif armazena_first_nova_regra.isupper():
-                    print('ENTROU 3 REGRA')
-                    for y in ordenar_regra:
-                        if y == teste_pilha[j]:  # Achou a letra minuscula #
-                            for lower in tabela_complete:
-                                if atualiza_letra == lower[0] and teste_pilha[j] == lower[1]:  # Se possuir M[X,Z]
-                                    aux_tabela.append(lower[2:] + '$')
-                                    armazena_first_nova_regra = lower[3]
-                                    armazena_precisar_remover = lower[3:]
-                                    i += 1
+                elif x[0].isupper():
+                    for p in tabela_sintatica:
+                        if loop_regra3:
+                            if x[0] == p[0] and y[0] == p[1]:
+                                if 3 < len(p):
+                                    if p[2].isupper() and p[3].isupper():
+                                        loop_regra3 = False
+                                        x = p[3] + x[1:]
+                                    else:
+                                        if p[3] == 'ε':
+                                            x = x[1:]
+                                        else:
+                                            x = p[2:] + '$'
+                                            loop_regra3 = False
                                 else:
-                                    k += 1
-                                    if k + 1 < len(tabela_complete):
-                                        aux_tabela.append('ERRO')
-                    k = 0
+                                    x = p[2:] + '$'
+                                    loop_regra3 = False
+                            else:
+                                inc_p += 1
+                                tam_p = len(p)
+                                if tam_p+1 == inc_p:
+                                    print('\n[ENTRADA RECUSADA]')
+                                    return
+
                 else:
-                    print('ENTROU ELSE')
-                    pass
-            print('CHEGOU', aux_tabela)
+                    print('ERRO NO PROGRAMA')
+                    return
+            print('\n[ENTRADA ACEITA]')
         else:
             print('[ERRO: Vc deve digitar S ou N para continuar]')
             continuar_letra = str(input('Deseja incluir outra letra? (S/N) ')).upper()
